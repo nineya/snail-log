@@ -68,7 +68,7 @@ public class FileTool {
     /**
      * 传入路径，返回是否是绝对路径，是绝对路径返回true，反之
      * @param path 路径
-     * @return
+     * @return true:是绝对路径，false：不是绝对路径
      */
     public static boolean isAbsolutePath(String path) {
         if(path==null){

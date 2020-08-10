@@ -8,8 +8,7 @@ import com.nineya.snaillog.Logger;
  */
 public class TestMain {
     private static Logger logger = Logger.getLogger("sys");
-    private static Logger logger2 = Logger.getLogger(TestMain.class);
     public static void main(String[] args) {
-        logger.info("傻叉");
+        logger.info("hello logger.");
     }
 }
