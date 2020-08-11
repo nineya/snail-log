@@ -19,24 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e1fdc07-ab37-441c-a502-e17b955a4883" name="默认的" comment="初始提交">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/snaillog/appender/SimpleFileAppender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/demos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/demos/demos.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demos/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/src/main/java/com/nineya/slogtest/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/demos/src/main/java/com/nineya/slogtest/TestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/src/main/resources/slog.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demos/src/main/resources/slog.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slog-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/slog-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slog-core/slog-core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/slog-core/slog-core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/snaillog/appender/FileAppender.java" beforeDir="false" afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/snaillog/appender/FileAppender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/snaillog/tool/FileTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/snaillog/tool/FileTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snail-log.iml" beforeDir="false" afterPath="$PROJECT_DIR$/snail-log.iml" afterDir="false" />
+    <list default="true" id="2e1fdc07-ab37-441c-a502-e17b955a4883" name="默认的" comment="版本更新，以及文档补充">
+      <change afterPath="$PROJECT_DIR$/docs/Introduction.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +58,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../logging-log4j2-log4j-2.13.3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -239,7 +225,8 @@
       <workItem from="1596739770118" duration="41000" />
       <workItem from="1596740508175" duration="61000" />
       <workItem from="1596741393628" duration="34002000" />
-      <workItem from="1597073432913" duration="1346000" />
+      <workItem from="1597073432913" duration="2123000" />
+      <workItem from="1597161118099" duration="1623000" />
     </task>
     <task id="LOCAL-00001" summary="初始提交">
       <created>1596508156134</created>
@@ -255,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596510275149</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="版本更新，以及文档补充">
+      <created>1597079482406</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1597079482406</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +269,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="初始提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="初始提交" />
+    <MESSAGE value="版本更新，以及文档补充" />
+    <option name="LAST_COMMIT_MESSAGE" value="版本更新，以及文档补充" />
   </component>
   <component name="WindowStateProjectService">
     <state x="697" y="171" key="#HTTP_Proxy" timestamp="1596738537902">
@@ -314,6 +309,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="390" y="106" width="996" height="707" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1596740567663" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1597079582202">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1597079582202" />
     <state x="447" y="398" width="672" height="677" key="run.anything.popup" timestamp="1596951600983">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
