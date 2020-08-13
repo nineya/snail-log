@@ -11,9 +11,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="demos" target="13" />
-      <module name="slog-core" target="13" />
-      <module name="snail-log" target="13" />
+      <module name="demos" target="1.8" />
+      <module name="slog-core" target="1.8" />
+      <module name="snail-log" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
