@@ -3,6 +3,8 @@ package com.nineya.slog;
 import com.nineya.slog.appender.Appender;
 import com.nineya.slog.spi.LoggingEvent;
 
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -42,80 +44,144 @@ public class Logger {
         this.level = level;
     }
 
-    Logger(String name){
+    protected Logger(String name){
         this.name = name;
     }
 
     public void info(Object message){
-        forcedLog(Level.INFO, message, null);
+        forcedLog(Document.CONTENT, Level.INFO, message, null);
     }
 
     public void info(Object message, Throwable t){
-        forcedLog(Level.INFO, message, t);
+        forcedLog(Document.CONTENT, Level.INFO, message, t);
     }
 
     public void info(String message, Object... params){
-        forcedLog(Level.INFO, disposeMessage(message, params), null);
+        forcedLog(Document.CONTENT, Level.INFO, disposeMessage(message, params), null);
+    }
+
+    public void infoTitle(int tLevel, Object message){
+        forcedLog(Document.getTitle(tLevel), Level.INFO, message, null);
+    }
+
+    public void infoTitle(int tLevel, String message, Object... params){
+        forcedLog(Document.getTitle(tLevel), Level.INFO, disposeMessage(message, params), null);
+    }
+
+    public void infoTable(List<Map<String, Object>> table){
+
     }
 
     public void error(Object message){
-        forcedLog(Level.ERROR, message, null);
+        forcedLog(Document.CONTENT, Level.ERROR, message, null);
     }
 
     public void error(Object message, Throwable t){
-        forcedLog(Level.ERROR, message, t);
+        forcedLog(Document.CONTENT, Level.ERROR, message, t);
     }
 
     public void error(String message, Object... params){
-        forcedLog(Level.INFO, disposeMessage(message, params), null);
+        forcedLog(Document.CONTENT, Level.ERROR, disposeMessage(message, params), null);
+    }
+
+    public void errorTitle(int tLevel, Object message){
+        forcedLog(Document.getTitle(tLevel),  Level.ERROR, message, null);
+    }
+
+    public void errorTitle(int tLevel, String message, Object... params){
+        forcedLog(Document.getTitle(tLevel),  Level.ERROR, disposeMessage(message, params), null);
     }
 
     public void debug(Object message){
-        forcedLog(Level.DEBUG, message, null);
+        forcedLog(Document.CONTENT, Level.DEBUG, message, null);
     }
 
     public void debug(Object message, Throwable t){
-        forcedLog(Level.DEBUG, message, t);
+        forcedLog(Document.CONTENT, Level.DEBUG, message, t);
     }
 
     public void debug(String message, Object... params){
-        forcedLog(Level.DEBUG, disposeMessage(message, params), null);
+        forcedLog(Document.CONTENT, Level.DEBUG, disposeMessage(message, params), null);
+    }
+
+    public void debugTitle(int tLevel, Object message){
+        forcedLog(Document.getTitle(tLevel),  Level.DEBUG, message, null);
+    }
+
+    public void debugTitle(int tLevel, String message, Object... params){
+        forcedLog(Document.getTitle(tLevel),  Level.DEBUG, disposeMessage(message, params), null);
     }
 
     public void warn(Object message){
-        forcedLog(Level.WARN, message, null);
+        forcedLog(Document.CONTENT, Level.WARN, message, null);
     }
 
     public void warn(Object message, Throwable t){
-        forcedLog(Level.WARN, message, t);
+        forcedLog(Document.CONTENT, Level.WARN, message, t);
     }
 
     public void warn(String message, Object... params){
-        forcedLog(Level.WARN, disposeMessage(message, params), null);
+        forcedLog(Document.CONTENT, Level.WARN, disposeMessage(message, params), null);
+    }
+
+    public void warnTitle(int tLevel, Object message){
+        forcedLog(Document.getTitle(tLevel),  Level.WARN, message, null);
+    }
+
+    public void warnTitle(int tLevel, String message, Object... params){
+        forcedLog(Document.getTitle(tLevel),  Level.WARN, disposeMessage(message, params), null);
     }
 
     public void fatal(Object message){
-        forcedLog(Level.FATAL, message, null);
+        forcedLog(Document.CONTENT, Level.FATAL, message, null);
     }
 
     public void fatal(Object message, Throwable t){
-        forcedLog(Level.FATAL, message, t);
+        forcedLog(Document.CONTENT, Level.FATAL, message, t);
     }
 
     public void fatal(String message, Object... params){
-        forcedLog(Level.FATAL, disposeMessage(message, params), null);
+        forcedLog(Document.CONTENT, Level.FATAL, disposeMessage(message, params), null);
+    }
+
+    public void fatalTitle(int tLevel, Object message){
+        forcedLog(Document.getTitle(tLevel),  Level.FATAL, message, null);
+    }
+
+    public void fatalTitle(int tLevel, String message, Object... params){
+        forcedLog(Document.getTitle(tLevel),  Level.FATAL, disposeMessage(message, params), null);
     }
 
     public void trace(Object message){
-        forcedLog(Level.TRACE, message, null);
+        forcedLog(Document.CONTENT, Level.TRACE, message, null);
     }
 
     public void trace(Object message, Throwable t){
-        forcedLog(Level.TRACE, message, t);
+        forcedLog(Document.CONTENT, Level.TRACE, message, t);
     }
 
     public void trace(String message, Object... params){
-        forcedLog(Level.TRACE, disposeMessage(message, params), null);
+        forcedLog(Document.CONTENT, Level.TRACE, disposeMessage(message, params), null);
+    }
+
+    public void traceTitle(int tLevel, Object message){
+        forcedLog(Document.getTitle(tLevel),  Level.TRACE, message, null);
+    }
+
+    public void traceTitle(int tLevel, String message, Object... params){
+        forcedLog(Document.getTitle(tLevel),  Level.TRACE, disposeMessage(message, params), null);
+    }
+
+    public void log(Document document, Level level, Object message){
+        forcedLog(document, level, message, null);
+    }
+
+    public void log(Document document, Level level, Object message, Throwable t){
+        forcedLog(document, level, message, t);
+    }
+
+    public void log(Document document, Level level, String message, Object... params){
+        forcedLog(document, level, disposeMessage(message, params), null);
     }
 
     private String disposeMessage(String message, Object[] params){
@@ -143,9 +209,9 @@ public class Logger {
         return LogManager.getLogger(clazz.getName());
     }
 
-    private void forcedLog(Level level, Object message, Throwable t) {
+    private void forcedLog(Document document, Level level, Object message, Throwable t) {
         if (level.getLevelNum() >= level.getLevelNum()){
-            callAppenders(new LoggingEvent(FQCN, level, name, message, t));
+            callAppenders(new LoggingEvent(FQCN, document, level, name, message, t));
         }
     }
 

@@ -4,6 +4,7 @@ import com.nineya.slog.appender.AppenderSkeleton;
 import com.nineya.slog.appender.ConsoleAppender;
 import com.nineya.slog.config.PropertyConfigurator;
 import com.nineya.slog.internal.Node;
+import com.nineya.slog.internal.StatusLogger;
 import com.nineya.slog.layout.PatternLayout;
 import com.nineya.slog.tool.FileTool;
 
@@ -19,6 +20,7 @@ public final class LogManager {
     public static final String ROOT_LOGGER_NAME = "rootLogger";
     public static final String DEFAULT_CONFIGURATION_FILE = "slog.properties";
     private static final Map<String, Logger> nameLoggers = new ConcurrentHashMap<>();
+    private static final Logger STATUS_LOGGER = StatusLogger.getLogger();
     private static LoggerRepository repository = getLoggerRepository();
 
     public static Logger getLogger(String name) {
@@ -36,8 +38,9 @@ public final class LogManager {
                 AppenderSkeleton appender = new ConsoleAppender();
                 appender.setLayout(new PatternLayout());
                 getRootLogger().setAppender(appender);
-                new PropertyConfigurator().doConfigure(FileTool.getResourcesPath(DEFAULT_CONFIGURATION_FILE), repository);
+                new PropertyConfigurator().doConfigure(FileTool.getResourcesStream(DEFAULT_CONFIGURATION_FILE), repository);
             } catch (Exception e) {
+                STATUS_LOGGER.error("创建 LoggerRepository 发生错误");
             }
         }
         return repository;

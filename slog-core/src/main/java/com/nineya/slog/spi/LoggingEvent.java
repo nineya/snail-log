@@ -1,5 +1,6 @@
 package com.nineya.slog.spi;
 
+import com.nineya.slog.Document;
 import com.nineya.slog.Level;
 
 import java.io.PrintWriter;
@@ -12,6 +13,7 @@ import java.util.Date;
  * @date 2020/7/5 0:28
  */
 public class LoggingEvent {
+    private final Document document;
     private final Level level;
     private final String loggerName;
     private final long startTime = System.currentTimeMillis();
@@ -20,7 +22,8 @@ public class LoggingEvent {
     private StackTraceElement locationInfo;
     private Throwable throwable;
 
-    public LoggingEvent(String fgcn, Level level, String loggerName, Object message, Throwable throwable) {
+    public LoggingEvent(String fgcn,Document document, Level level, String loggerName, Object message, Throwable throwable) {
+        this.document = document;
         this.level = level;
         this.loggerName = loggerName;
         this.message = message;
@@ -66,6 +69,10 @@ public class LoggingEvent {
 
     public Object getMessage() {
         return message;
+    }
+
+    public Document getDocument() {
+        return document;
     }
 
     public String getThrowableInfo(){

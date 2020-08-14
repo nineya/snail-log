@@ -14,6 +14,8 @@ public class AutoMain {
         logger.debug("hello slog as debug.");
         logger.trace("hello slog as debug.");
 
+        logger.infoTitle(1, "know slog");
+
         logger.error("hello slog as error.", new Throwable());
         String message = "hello {}.";
         logger.info(message, "slog");

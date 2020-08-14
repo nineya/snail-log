@@ -44,8 +44,12 @@ public class PropertyConfigurator implements Configurator<Properties> {
         if (!FileTool.fileExists(path)){
             throw new SnailFileException(path, "配置文件不存在");
         }
-        Properties properties = new Properties();
         InputStream in = new BufferedInputStream(new FileInputStream(path));
+        doConfigure(in, repository);
+    }
+
+    public void doConfigure(InputStream in, LoggerRepository repository) throws IOException{
+        Properties properties = new Properties();
         properties.load(in);
         in.close();
         doConfigure(properties, repository);
@@ -76,7 +80,10 @@ public class PropertyConfigurator implements Configurator<Properties> {
         }
         parseClassNode(loggerName, properties);
         try {
-            logger.setAppender(parseAppender(loggerPrefix + APPENDER_SUFFIX, properties));
+            Appender appender = parseAppender(loggerPrefix + APPENDER_SUFFIX, properties);
+            if (appender != null){
+                logger.setAppender(appender);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -149,13 +156,17 @@ public class PropertyConfigurator implements Configurator<Properties> {
 
     // 属性注入
     public void doAttribute(String prefix, Class clazz, Object obj, Properties properties) throws IllegalAccessException, NoSuchFieldException {
-        Field[] fields = clazz.getDeclaredFields();
-        for (Field field : fields){
-            Object attribute = properties.get(prefix + field.getName());
-            if (attribute!=null){
-                field.setAccessible(true);
-                field.set(obj, attribute);
+        while (clazz !=null){
+            Field[] fields = clazz.getDeclaredFields();
+            for (Field field : fields){
+                Object attribute = properties.get(prefix + field.getName());
+                if (attribute!=null){
+                    field.setAccessible(true);
+                    field.set(obj, attribute);
+                    return;
+                }
             }
+            clazz = clazz.getSuperclass();
         }
     }
 

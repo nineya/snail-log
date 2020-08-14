@@ -8,6 +8,6 @@ import java.io.IOException;
  */
 public class SnailFileException extends IOException {
     public SnailFileException(String path, String message){
-        super("路径="+path+"，出现异常="+message);
+        super("异常："+message+"，路径："+path);
     }
 }

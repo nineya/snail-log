@@ -1,6 +1,7 @@
 package com.nineya.slog.tool;
 
 import java.io.*;
+import java.net.URISyntaxException;
 
 /**
  * @author linsongwang
@@ -80,9 +81,9 @@ public class FileTool {
     /**
      * 取得resource目录中的文件的路径
      * @param fileName 文件名
-     * @return 文件的路径
+     * @return 文件的输入流
      */
-    public static String getResourcesPath(String fileName){
-        return FileTool.class.getClassLoader().getResource(fileName).getPath();
+    public static InputStream getResourcesStream(String fileName) {
+        return FileTool.class.getClassLoader().getResourceAsStream(fileName);
     }
 }
