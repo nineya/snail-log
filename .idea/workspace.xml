@@ -21,9 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2e1fdc07-ab37-441c-a502-e17b955a4883" name="默认的" comment="文档补充，实现了打印Throwable">
       <change afterPath="$PROJECT_DIR$/demos/target/classes/slog.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/Document.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/internal/StatusLogger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/MarkdownLayout.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/exception/ConfiguratorException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/slog-core/target/apidocs/allclasses-frame.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/slog-core/target/apidocs/allclasses-noframe.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/slog-core/target/apidocs/com/nineya/slog/Level.html" afterDir="false" />
@@ -125,18 +123,18 @@
       <change afterPath="$PROJECT_DIR$/slog-core/target/javadoc-bundle-options/package-list" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/slog-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/slog-core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demos/src/main/java/com/nineya/slog/AutoMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/demos/src/main/java/com/nineya/slog/AutoMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demos/src/main/resources/slog.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demos/src/main/resources/slog.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/LogManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/LogManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/appender/SimpleFileAppender.java" beforeDir="false" afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/appender/SimpleFileAppender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/config/PropertyConfigurator.java" beforeDir="false" afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/config/PropertyConfigurator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/exception/SnailFileException.java" beforeDir="false" afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/exception/SnailFileException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/Layout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/PatternLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/PatternLayout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/spi/LoggingEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/spi/LoggingEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/tool/FileTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/tool/FileTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/tool/StringUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/tool/StringUtil.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/slog-core/target/" />
@@ -154,47 +152,74 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/Logger.java">
+        <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/appender/SimpleFileAppender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2949">
-              <caret line="171" column="85" selection-start-line="171" selection-start-column="85" selection-end-line="171" selection-end-column="85" />
+            <state relative-caret-position="792">
+              <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demos/src/main/java/com/nineya/slog/AutoMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-9">
+              <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/config/PropertyConfigurator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="48" column="90" selection-start-line="48" selection-start-column="90" selection-end-line="48" selection-end-column="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/exception/SnailFileException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
               <folding>
-                <element signature="e#1015#1016#0" expanded="true" />
-                <element signature="e#1047#1048#0" expanded="true" />
-                <element signature="e#1856#1857#0" expanded="true" />
-                <element signature="e#1927#1928#0" expanded="true" />
-                <element signature="e#1980#1981#0" expanded="true" />
-                <element signature="e#2048#2049#0" expanded="true" />
-                <element signature="e#2559#2560#0" expanded="true" />
-                <element signature="e#2630#2631#0" expanded="true" />
-                <element signature="e#2683#2684#0" expanded="true" />
-                <element signature="e#2751#2752#0" expanded="true" />
-                <element signature="e#3261#3262#0" expanded="true" />
-                <element signature="e#3331#3332#0" expanded="true" />
-                <element signature="e#3383#3384#0" expanded="true" />
-                <element signature="e#3450#3451#0" expanded="true" />
-                <element signature="e#3955#3956#0" expanded="true" />
-                <element signature="e#4026#4027#0" expanded="true" />
-                <element signature="e#4079#4080#0" expanded="true" />
-                <element signature="e#4147#4148#0" expanded="true" />
-                <element signature="e#4658#4659#0" expanded="true" />
-                <element signature="e#4729#4730#0" expanded="true" />
-                <element signature="e#4782#4783#0" expanded="true" />
-                <element signature="e#4850#4851#0" expanded="true" />
-                <element signature="e#5395#5396#0" expanded="true" />
-                <element signature="e#5412#5413#0" expanded="true" />
-                <element signature="e#3624#3625#0" expanded="true" />
-                <element signature="e#3673#3674#0" expanded="true" />
+                <element signature="e#232#233#0" expanded="true" />
+                <element signature="e#280#281#0" expanded="true" />
+                <element signature="e#327#328#0" expanded="true" />
+                <element signature="e#363#364#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/MarkdownLayout.java">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_192/src.zip!/java/util/Properties.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="254">
+              <caret line="421" column="24" lean-forward="true" selection-start-line="421" selection-start-column="24" selection-end-line="421" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_192/src.zip!/java/lang/String.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+              <folding>
+                <element signature="e#55800#55801#0" expanded="true" />
+                <element signature="e#55844#55845#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/tool/FileTool.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -203,67 +228,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/Layout.java">
+        <entry file="file://$PROJECT_DIR$/slog-core/src/main/Test/com/nineya/slog/LoggerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="167">
+              <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/PatternLayout.java">
+        <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/LogManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+            <state relative-caret-position="211">
+              <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/MarkdownLayout.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
-                <element signature="e#214#215#0" expanded="true" />
-                <element signature="e#254#255#0" expanded="true" />
-                <element signature="e#320#321#0" expanded="true" />
-                <element signature="e#378#379#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/spi/LoggingEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="777">
-              <caret line="73" column="13" lean-forward="true" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
-              <folding>
-                <element signature="e#1425#1426#0" expanded="true" />
-                <element signature="e#1453#1454#0" expanded="true" />
-                <element signature="e#2035#2036#0" expanded="true" />
-                <element signature="e#2066#2067#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demos/target/classes/slog.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/demos/src/main/resources/slog.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="76" lean-forward="true" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demos/src/main/java/com/nineya/slog/AutoMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -299,26 +288,29 @@
         <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/snaillog/layout/Layout.java" />
         <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/snaillog/Logger.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/slog-core/src/main/Test/com/nineya/slog/LoggerTest.java" />
         <option value="$PROJECT_DIR$/docs/slog-build-api.md" />
         <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/StatusLogger.java" />
         <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/internal/StatusLogger.java" />
-        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/exception/SnailFileException.java" />
         <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/tool/FileTool.java" />
         <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/config/Configurator.java" />
-        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/LogManager.java" />
-        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/spi/LoggingEvent.java" />
         <option value="$PROJECT_DIR$/docs/README.md" />
         <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/Document.java" />
         <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/Logger.java" />
-        <option value="$PROJECT_DIR$/demos/src/main/java/com/nineya/slog/AutoMain.java" />
         <option value="$PROJECT_DIR$/demos/target/classes/slog.properties" />
-        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/config/PropertyConfigurator.java" />
-        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/PatternLayout.java" />
-        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/Layout.java" />
         <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/MarkdownLayout.java" />
+        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/tool/StringUtil.java" />
+        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/spi/LoggingEvent.java" />
+        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/exception/ConfiguratorException.java" />
+        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/Layout.java" />
+        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/PatternLayout.java" />
+        <option value="$PROJECT_DIR$/slog-core/src/main/Test/com/nineya/slog/LoggerTest.java" />
+        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/appender/FileAppender.java" />
         <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/appender/SimpleFileAppender.java" />
         <option value="$PROJECT_DIR$/demos/src/main/resources/slog.properties" />
+        <option value="$PROJECT_DIR$/demos/src/main/java/com/nineya/slog/AutoMain.java" />
+        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/LogManager.java" />
+        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/exception/SnailFileException.java" />
+        <option value="$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/config/PropertyConfigurator.java" />
       </list>
     </option>
   </component>
@@ -345,11 +337,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-1461" />
-    <option name="y" value="123" />
-    <option name="width" value="1810" />
-    <option name="height" value="872" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1928" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectId" id="1dY0EyCRvLGR8NNFvn7nNiMY16O" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -472,7 +464,34 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="slog" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="snail-log" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snail-log" type="462c0819:PsiDirectoryNode" />
+              <item name="slog-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="slog" type="462c0819:PsiDirectoryNode" />
               <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="snail-log" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snail-log" type="462c0819:PsiDirectoryNode" />
+              <item name="slog-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="Test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="snail-log" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snail-log" type="462c0819:PsiDirectoryNode" />
+              <item name="slog-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="Test" type="462c0819:PsiDirectoryNode" />
+              <item name="slog" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -491,7 +510,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../log-test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -536,7 +555,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.AutoMain">
+  <component name="RunManager" selected="JUnit.LoggerTest.testInfo">
     <configuration name="AutoMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.nineya.slog.AutoMain" />
       <module name="demos" />
@@ -619,8 +638,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AutoMain" />
         <item itemvalue="JUnit.LoggerTest.testInfo" />
+        <item itemvalue="Application.AutoMain" />
         <item itemvalue="Maven.snail-log [deploy]" />
       </list>
     </recent_temporary>
@@ -693,7 +712,8 @@
       <workItem from="1597304834648" duration="11114000" />
       <workItem from="1597316529113" duration="351000" />
       <workItem from="1597316935760" duration="1286000" />
-      <workItem from="1597388791792" duration="6756000" />
+      <workItem from="1597388791792" duration="6960000" />
+      <workItem from="1597398796771" duration="6896000" />
     </task>
     <task id="LOCAL-00001" summary="初始提交">
       <created>1596508156134</created>
@@ -723,43 +743,50 @@
       <option name="project" value="LOCAL" />
       <updated>1597315268666</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="添加了基础的Markdown文档打印实现">
+      <created>1597395716516</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1597395716516</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LoggerTest_testInfo - 2020.08.13 at 18h 23m 59s.xml">
+    <history-entry file="LoggerTest_testInfo - 2020.08.14 at 19h 42m 31s.xml">
       <configuration name="LoggerTest.testInfo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoggerTest_testInfo - 2020.08.13 at 18h 24m 17s.xml">
+    <history-entry file="LoggerTest_testInfo - 2020.08.14 at 19h 58m 35s.xml">
       <configuration name="LoggerTest.testInfo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoggerTest_testInfo - 2020.08.13 at 18h 24m 22s.xml">
+    <history-entry file="LoggerTest_testInfo - 2020.08.14 at 20h 00m 25s.xml">
       <configuration name="LoggerTest.testInfo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoggerTest_testInfo - 2020.08.13 at 18h 32m 35s.xml">
+    <history-entry file="LoggerTest_testInfo - 2020.08.14 at 20h 02m 23s.xml">
       <configuration name="LoggerTest.testInfo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoggerTest_testInfo - 2020.08.13 at 18h 32m 43s.xml">
+    <history-entry file="LoggerTest_testInfo - 2020.08.14 at 20h 02m 48s.xml">
       <configuration name="LoggerTest.testInfo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoggerTest_testInfo - 2020.08.13 at 18h 32m 50s.xml">
+    <history-entry file="LoggerTest_testInfo - 2020.08.14 at 20h 03m 55s.xml">
       <configuration name="LoggerTest.testInfo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoggerTest_testInfo - 2020.08.13 at 18h 32m 57s.xml">
+    <history-entry file="LoggerTest_testInfo - 2020.08.14 at 20h 04m 14s.xml">
       <configuration name="LoggerTest.testInfo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoggerTest_testInfo - 2020.08.13 at 18h 33m 13s.xml">
+    <history-entry file="LoggerTest_testInfo - 2020.08.14 at 20h 05m 17s.xml">
       <configuration name="LoggerTest.testInfo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoggerTest_testInfo - 2020.08.13 at 18h 33m 39s.xml">
+    <history-entry file="LoggerTest_testInfo - 2020.08.14 at 20h 05m 30s.xml">
       <configuration name="LoggerTest.testInfo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoggerTest_testInfo - 2020.08.13 at 18h 33m 43s.xml">
+    <history-entry file="LoggerTest_testInfo - 2020.08.14 at 20h 07m 11s.xml">
       <configuration name="LoggerTest.testInfo" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19507000" />
+    <option name="totallyTimeSpent" value="26607000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -771,18 +798,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1461" y="123" width="1810" height="872" extended-state="0" />
+    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.272" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31503198" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Learn" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7491429" visible="true" weight="0.33193278" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" weight="0.28507796" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7478678" visible="true" weight="0.33853006" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4978678" weight="0.33964366" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49885714" weight="0.22689076" />
@@ -790,7 +817,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.27060133" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="CheckStyle" order="10" weight="0.32962137" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.25085714" side_tool="true" visible="true" weight="0.33193278" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.2521322" side_tool="true" visible="true" weight="0.33853006" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49946696" weight="0.32962137" />
       <window_info anchor="bottom" id="Anonymous Apex" order="13" weight="0.32962137" />
       <window_info anchor="bottom" id="Log Analyzer" order="14" weight="0.32962137" />
@@ -879,7 +906,8 @@
     <MESSAGE value="初始提交" />
     <MESSAGE value="版本更新，以及文档补充" />
     <MESSAGE value="文档补充，实现了打印Throwable" />
-    <option name="LAST_COMMIT_MESSAGE" value="文档补充，实现了打印Throwable" />
+    <MESSAGE value="添加了基础的Markdown文档打印实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加了基础的Markdown文档打印实现" />
   </component>
   <component name="WindowStateProjectService">
     <state x="697" y="171" key="#HTTP_Proxy" timestamp="1596738537902">
@@ -940,19 +968,8 @@
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demos/src/main/java/com/nineya/slog/AutoMain.java</url>
-          <line>9</line>
-          <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="((java.util.concurrent.ConcurrentHashMap.MapEntry)((java.util.concurrent.ConcurrentHashMap)LogManager.nameLoggers).entrySet().toArray()[0]).getKey()" custom="java.util.concurrent.ConcurrentHashMap,java.util.concurrent.ConcurrentHashMap.MapEntry" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/docs/Introduction.md" />
@@ -963,23 +980,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="242">
-            <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_192/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="2939" column="33" selection-start-line="2939" selection-start-column="33" selection-end-line="2939" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -1062,30 +1062,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/slog-core/src/main/Test/com/nineya/slog/LoggerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="21" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/Level.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#416#417#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/exception/SnailFileException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding>
-            <element signature="e#232#233#0" expanded="true" />
-            <element signature="e#282#283#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1110,34 +1092,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/tool/FileTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="84" column="7" lean-forward="true" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/config/Configurator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/LogManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="42" column="62" selection-start-line="42" selection-start-column="62" selection-end-line="42" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/appender/ConsoleAppender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
@@ -1158,26 +1116,202 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sys.log" />
+    <entry file="file://$PROJECT_DIR$/demos/target/classes/slog.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/tool/StringUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/spi/LoggingEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="73" column="13" lean-forward="true" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+        <state relative-caret-position="273">
+          <caret line="60" column="58" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
           <folding>
             <element signature="e#1425#1426#0" expanded="true" />
             <element signature="e#1453#1454#0" expanded="true" />
+            <element signature="e#1797#1798#0" expanded="true" />
+            <element signature="e#1828#1829#0" expanded="true" />
             <element signature="e#2035#2036#0" expanded="true" />
             <element signature="e#2066#2067#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_192/src.zip!/java/io/FileWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="106" column="23" lean-forward="true" selection-start-line="106" selection-start-column="23" selection-end-line="106" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="506">
+            <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+            <folding>
+              <element signature="e#191#192#0" expanded="true" />
+              <element signature="e#235#236#0" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_192/src.zip!/java/io/File.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="276" column="18" selection-start-line="276" selection-start-column="18" selection-end-line="276" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_192/src.zip!/java/io/FileOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-115">
+          <caret line="193" column="11" selection-start-line="193" selection-start-column="11" selection-end-line="193" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/config/LoggerConfigurator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/exception/ConfiguratorException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <folding>
+            <element signature="e#206#207#0" expanded="true" />
+            <element signature="e#254#255#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/appender/AppenderSkeleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/PatternLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/Layout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="18" column="51" lean-forward="true" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+          <folding>
+            <element signature="e#534#535#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/appender/ConsoleAppender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/MarkdownLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/appender/FileAppender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <folding>
+            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#335#336#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sys.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-902">
+            <caret line="27" selection-start-line="27" selection-end-line="27" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="LargeFileEditor">
+        <state relative-caret-position="-745166" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sys.md4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2053" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sys.md33">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_192/src.zip!/java/io/OutputStreamWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="231" column="16" selection-start-line="231" selection-start-column="16" selection-end-line="231" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/src/main/resources/slog.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="43" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/tool/FileTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/src/main/java/com/nineya/slog/AutoMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/Logger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2949">
-          <caret line="171" column="85" selection-start-line="171" selection-start-column="85" selection-end-line="171" selection-end-column="85" />
+        <state relative-caret-position="188">
+          <caret line="208" selection-start-line="208" selection-end-line="208" />
           <folding>
-            <element signature="e#1015#1016#0" expanded="true" />
-            <element signature="e#1047#1048#0" expanded="true" />
             <element signature="e#1856#1857#0" expanded="true" />
             <element signature="e#1927#1928#0" expanded="true" />
             <element signature="e#1980#1981#0" expanded="true" />
@@ -1198,98 +1332,67 @@
             <element signature="e#4729#4730#0" expanded="true" />
             <element signature="e#4782#4783#0" expanded="true" />
             <element signature="e#4850#4851#0" expanded="true" />
-            <element signature="e#5395#5396#0" expanded="true" />
-            <element signature="e#5412#5413#0" expanded="true" />
-            <element signature="e#3624#3625#0" expanded="true" />
-            <element signature="e#3673#3674#0" expanded="true" />
+            <element signature="e#6565#6566#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demos/src/main/java/com/nineya/slog/AutoMain.java">
+    <entry file="file://$PROJECT_DIR$/slog-core/src/main/Test/com/nineya/slog/LoggerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        <state relative-caret-position="167">
+          <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sys.log">
+    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/LogManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="211">
+          <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/config/PropertyConfigurator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="168" column="42" selection-start-line="168" selection-start-column="42" selection-end-line="168" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sys.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/Layout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/PatternLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
-          <folding>
-            <element signature="e#214#215#0" expanded="true" />
-            <element signature="e#254#255#0" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
-            <element signature="e#378#379#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/layout/MarkdownLayout.java">
+    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/exception/SnailFileException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#232#233#0" expanded="true" />
+            <element signature="e#280#281#0" expanded="true" />
+            <element signature="e#327#328#0" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/appender/FileAppender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/appender/SimpleFileAppender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
+        <state relative-caret-position="792">
+          <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demos/target/classes/slog.properties">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_192/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="188">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+          <folding>
+            <element signature="e#55800#55801#0" expanded="true" />
+            <element signature="e#55844#55845#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demos/src/main/resources/slog.properties">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_192/src.zip!/java/util/Properties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="76" lean-forward="true" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
+        <state relative-caret-position="254">
+          <caret line="421" column="24" lean-forward="true" selection-start-line="421" selection-start-column="24" selection-end-line="421" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slog-core/src/main/java/com/nineya/slog/config/PropertyConfigurator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="48" column="90" selection-start-line="48" selection-start-column="90" selection-end-line="48" selection-end-column="90" />
         </state>
       </provider>
     </entry>

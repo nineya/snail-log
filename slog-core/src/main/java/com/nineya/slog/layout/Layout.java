@@ -15,6 +15,10 @@ public abstract class Layout {
 
     public abstract String format(LoggingEvent event);
 
+    public void setConversionPattern(String conversionPattern) {
+        this.conversionPattern = conversionPattern;
+    }
+
     protected String regexFormat(String conversionPattern, LoggingEvent event){
         Matcher matcher = REGULAR.matcher(conversionPattern);
         while (matcher.find()){

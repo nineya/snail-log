@@ -6,9 +6,11 @@ import com.nineya.slog.LogManager;
 import com.nineya.slog.appender.Appender;
 import com.nineya.slog.appender.AppenderSkeleton;
 import com.nineya.slog.appender.ConsoleAppender;
+import com.nineya.slog.exception.ConfiguratorException;
 import com.nineya.slog.exception.SnailFileException;
 import com.nineya.slog.filter.Filter;
 import com.nineya.slog.internal.Node;
+import com.nineya.slog.internal.StatusLogger;
 import com.nineya.slog.layout.Layout;
 import com.nineya.slog.layout.PatternLayout;
 import com.nineya.slog.LoggerRepository;
@@ -21,6 +23,9 @@ import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -38,17 +43,18 @@ public class PropertyConfigurator implements Configurator<Properties> {
     private static final String LAYOUT_SUFFIX = ".layout";
     private static final String FILTER_SUFFIX = ".filter";
     private static final String APPENDER_ATTRIBUTE_SUFFIX = ".attribute.";
+    private static final Logger STATUS_LOGGER = StatusLogger.getLogger();
 
     @Override
     public void doConfigure(String path, LoggerRepository repository) throws IOException {
-        if (!FileTool.fileExists(path)){
-            throw new SnailFileException(path, "配置文件不存在");
-        }
         InputStream in = new BufferedInputStream(new FileInputStream(path));
         doConfigure(in, repository);
     }
 
     public void doConfigure(InputStream in, LoggerRepository repository) throws IOException{
+        if (in == null){
+            throw new SnailFileException("配置文件不存在");
+        }
         Properties properties = new Properties();
         properties.load(in);
         in.close();
@@ -155,15 +161,14 @@ public class PropertyConfigurator implements Configurator<Properties> {
     }
 
     // 属性注入
-    public void doAttribute(String prefix, Class clazz, Object obj, Properties properties) throws IllegalAccessException, NoSuchFieldException {
+    public void doAttribute(String prefix, Class clazz, Object obj, Properties properties) throws IllegalAccessException, InvocationTargetException {
         while (clazz !=null){
-            Field[] fields = clazz.getDeclaredFields();
-            for (Field field : fields){
-                Object attribute = properties.get(prefix + field.getName());
+            Method[] methods = clazz.getDeclaredMethods();
+            for (Method method : methods){
+                Object attribute = properties.get(prefix + method.getName().replaceFirst("set", ""));
                 if (attribute!=null){
-                    field.setAccessible(true);
-                    field.set(obj, attribute);
-                    return;
+                    method.setAccessible(true);
+                    method.invoke(obj, attribute);
                 }
             }
             clazz = clazz.getSuperclass();

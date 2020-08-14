@@ -8,14 +8,6 @@ import com.nineya.slog.spi.LoggingEvent;
  */
 public class PatternLayout extends Layout {
 
-    public String getConversionPattern() {
-        return conversionPattern;
-    }
-
-    public void setConversionPattern(String conversionPattern) {
-        this.conversionPattern = conversionPattern;
-    }
-
     @Override
     public String format(LoggingEvent event) {
         String format =  regexFormat(conversionPattern, event);

@@ -3,6 +3,7 @@ package com.nineya.slog;
 import com.nineya.slog.appender.AppenderSkeleton;
 import com.nineya.slog.appender.ConsoleAppender;
 import com.nineya.slog.config.PropertyConfigurator;
+import com.nineya.slog.exception.SnailFileException;
 import com.nineya.slog.internal.Node;
 import com.nineya.slog.internal.StatusLogger;
 import com.nineya.slog.layout.PatternLayout;
@@ -39,8 +40,8 @@ public final class LogManager {
                 appender.setLayout(new PatternLayout());
                 getRootLogger().setAppender(appender);
                 new PropertyConfigurator().doConfigure(FileTool.getResourcesStream(DEFAULT_CONFIGURATION_FILE), repository);
-            } catch (Exception e) {
-                STATUS_LOGGER.error("创建 LoggerRepository 发生错误");
+            } catch (IOException e) {
+                STATUS_LOGGER.error("默认配置文件不存在");
             }
         }
         return repository;

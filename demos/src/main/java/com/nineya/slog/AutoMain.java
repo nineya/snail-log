@@ -6,7 +6,7 @@ package com.nineya.slog;
  */
 public class AutoMain {
     private static Logger logger = Logger.getLogger("sys");
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         logger.fatal("hello slog as fatal.");
         logger.error("hello slog as error.");
         logger.warn("hello slog as warn.");

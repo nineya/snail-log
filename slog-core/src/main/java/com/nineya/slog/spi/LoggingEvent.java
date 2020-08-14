@@ -2,6 +2,7 @@ package com.nineya.slog.spi;
 
 import com.nineya.slog.Document;
 import com.nineya.slog.Level;
+import com.nineya.slog.tool.StringUtil;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -57,7 +58,11 @@ public class LoggingEvent {
         if (pattern == null || pattern.equals("")){
             pattern = "yyyy-MM-dd HH:mm:ss.SSS";
         }
-        return new SimpleDateFormat(pattern).format(new Date(startTime));
+        return StringUtil.getTimeFormat(pattern, startTime);
+    }
+
+    public Long getTimeStamp(){
+        return startTime;
     }
 
     public String getThreadName() {
