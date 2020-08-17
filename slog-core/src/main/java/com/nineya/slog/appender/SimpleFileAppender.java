@@ -12,6 +12,13 @@ public final class SimpleFileAppender extends FileAppender {
     private String datePattern;
     private String runTime;
 
+    public SimpleFileAppender(){
+    }
+
+    public SimpleFileAppender(String fileName){
+        this.fileName = fileName;
+    }
+
     public void setDatePattern(String datePattern) {
         this.datePattern = datePattern;
         runTime = StringUtil.getTimeFormat(datePattern, System.currentTimeMillis());

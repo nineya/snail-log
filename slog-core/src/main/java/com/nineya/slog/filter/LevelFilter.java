@@ -8,14 +8,26 @@ import com.nineya.slog.spi.LoggingEvent;
  * @date 2020/8/1 18:51
  */
 public class LevelFilter extends Filter {
-    private final Level level;
+    private Level level;
+
+    public void setLevel(Level level) {
+        this.level = level;
+    }
+
+    public void setLevel(String level) {
+        this.level = Level.value(level);
+    }
+
+    public LevelFilter(){
+
+    }
 
     public LevelFilter(Level level){
         this.level = level;
     }
 
     @Override
-    public boolean decide(LoggingEvent event) {
-        return event.getLevel().getLevelNum()>level.getLevelNum();
+    protected boolean doDecide(LoggingEvent event) {
+        return event.getLevel().getLevelNum() >= level.getLevelNum();
     }
 }

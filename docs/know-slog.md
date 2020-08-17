@@ -8,7 +8,7 @@
 
 
 
-`Logger`是Slog的核心，通过操作`Logger`对象进行日志信息的输入输出，`Appender`是实际上进行日志信息输出的对象，`Logger`与`Appender`具有一对一的关系，当创建一条日志信息满足`Logger`设置的日志级别要求时，`Logger`将其封装成`LoggerEvent`消息实体传给`Appender`，`Appender`根据内部的`Filter`进行过滤，通过过滤后使用`Layout`将消息转换为指定的样式进行输出。
+`Logger`是Slog的核心，通过操作`Logger`对象进行日志信息的输入输出，`Appender`是实际上进行日志信息输出的对象，`Logger`与`Appender`具有一对一的关系，当创建一条日志信息满足`Logger`设置的日志级别要求时，`Logger`将其封装成`LoggingEvent`消息实体传给`Appender`，`Appender`根据内部的`Filter`进行过滤，通过过滤后使用`Layout`将消息转换为指定的样式进行输出。
 
 
 

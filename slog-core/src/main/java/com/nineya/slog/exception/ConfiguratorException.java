@@ -10,4 +10,11 @@ public class ConfiguratorException extends RuntimeException {
         super("异常："+message);
     }
 
+    public ConfiguratorException(Throwable cause, String format, Object... args) {
+        super(String.format(format, args), cause);
+    }
+
+    public ConfiguratorException( Throwable cause, String message){
+        super("异常："+message, cause);
+    }
 }

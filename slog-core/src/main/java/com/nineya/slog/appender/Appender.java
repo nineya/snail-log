@@ -8,5 +8,5 @@ import com.nineya.slog.spi.LoggingEvent;
  */
 public interface Appender {
 
-    void doAppend(LoggingEvent event);
+    void callAppend(LoggingEvent event);
 }

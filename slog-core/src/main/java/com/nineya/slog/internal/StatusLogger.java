@@ -1,6 +1,7 @@
 package com.nineya.slog.internal;
 
 import com.nineya.slog.Logger;
+import com.nineya.slog.appender.ConsoleAppender;
 
 /**
  * @author linsongwang
@@ -12,6 +13,7 @@ public class StatusLogger extends Logger {
 
     private StatusLogger(String name) {
         super(name);
+        setAppender(new ConsoleAppender());
     }
 
     public static Logger getLogger(){

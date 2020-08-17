@@ -1,6 +1,7 @@
 package com.nineya.slog;
 
 import com.nineya.slog.appender.Appender;
+import com.nineya.slog.filter.Filter;
 import com.nineya.slog.spi.LoggingEvent;
 
 import java.util.List;
@@ -18,7 +19,21 @@ public class Logger {
     private Logger parent;
     private Appender appender;
     private static final String FQCN = Logger.class.getName();
+    private Filter headFilter;
     private static final Pattern pattern = Pattern.compile("\\{\\}");
+
+    public Filter getFilter() {
+        return headFilter;
+    }
+
+    public void setFilter(Filter filter) {
+        this.headFilter = filter;
+    }
+
+    public void addFilter(Filter filter){
+        filter.setNextFilter(headFilter);
+        this.headFilter = filter;
+    }
 
     public Appender getAppender() {
         return appender;
@@ -210,25 +225,22 @@ public class Logger {
     }
 
     private void forcedLog(Document document, Level level, Object message, Throwable t) {
-        if (level.getLevelNum() >= level.getLevelNum()){
-            callAppenders(new LoggingEvent(FQCN, document, level, name, message, t));
+        if (level.getLevelNum() >= this.level.getLevelNum()){
+            LoggingEvent event = new LoggingEvent(FQCN, document, level, name, message, t);
+            if ((headFilter == null || headFilter.decide(event)) && level.getLevelNum() >=  LogManager.getLoggerRepository().
+                levelFilter(this.name, event.getLocationInfo().getClassName()).getLevelNum()){
+                callAppenders(new LoggingEvent(FQCN, document, level, name, message, t));
+            }
         }
     }
 
     private void callAppenders(LoggingEvent event) {
         Logger logger = this;
-        while(logger!=null && event.getLevel().getLevelNum() > logger.level.getLevelNum()){
-            if (logger.appender!=null && event.getLevel().getLevelNum() >=  LogManager.getLoggerRepository()
-                .levelFilter(logger.name, event.getLocationInfo().getClassName()).getLevelNum()){
-                logger.appender.doAppend(event);
+        while(logger!=null){
+            if (logger.appender!=null){
+                logger.appender.callAppend(event);
             }
             logger = logger.parent;
-        }
-        // 执行rootLogger的appender
-        Logger rootLogger = LogManager.getRootLogger();
-        if (rootLogger.appender!=null && event.getLevel().getLevelNum() >= rootLogger.level.getLevelNum() && event.getLevel().getLevelNum()
-                >= LogManager.getLoggerRepository().levelFilter(rootLogger.name, event.getLocationInfo().getClassName()).getLevelNum()){
-            rootLogger.appender.doAppend(event);
         }
     }
 }
