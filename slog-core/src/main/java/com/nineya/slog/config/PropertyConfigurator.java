@@ -38,6 +38,7 @@ public class PropertyConfigurator implements Configurator<Properties> {
     private static final String LOGGER_PREFIX = "slog.";
     private static final String PARENT_SUFFIX = ".parent";
     private static final String CLASS_PREFIX = "slog.class.";
+    private static final String Filter_PREFIX = "slog.filter.";
     private static final String APPENDER_SUFFIX = ".appender";
     private static final String LEVEL_SUFFIX = ".level";
     private static final String LAYOUT_SUFFIX = ".layout";
@@ -69,6 +70,7 @@ public class PropertyConfigurator implements Configurator<Properties> {
             parseLogger(loggerName, properties);
         }
         parseClassNode(properties);
+        repository.setFilter(doFilter(Filter_PREFIX, properties));
     }
 
     private Logger parseLogger(String loggerName, Properties properties){

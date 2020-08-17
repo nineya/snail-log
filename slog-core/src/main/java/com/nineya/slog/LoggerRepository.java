@@ -1,7 +1,9 @@
 package com.nineya.slog;
 
 
+import com.nineya.slog.filter.Filter;
 import com.nineya.slog.internal.Node;
+import com.nineya.slog.spi.LoggingEvent;
 
 /**
  * @author linsongwang
@@ -9,6 +11,7 @@ import com.nineya.slog.internal.Node;
  */
 public class LoggerRepository {
     private Node rootNode;
+    private Filter filter;
 
     public LoggerRepository(Node rootNode){
         if (rootNode == null){
@@ -33,5 +36,17 @@ public class LoggerRepository {
 
     public Node getRootNode() {
         return rootNode;
+    }
+
+    public void setFilter(Filter filter) {
+        this.filter = filter;
+    }
+
+    public Filter getFilter() {
+        return filter;
+    }
+
+    public boolean decide(LoggingEvent event){
+        return filter.decide(event);
     }
 }

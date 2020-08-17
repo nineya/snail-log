@@ -237,7 +237,7 @@ public class Logger {
     private void callAppenders(LoggingEvent event) {
         Logger logger = this;
         while(logger!=null){
-            if (logger.appender!=null){
+            if (logger.appender!=null && LogManager.getLoggerRepository().decide(event)){
                 logger.appender.callAppend(event);
             }
             logger = logger.parent;
