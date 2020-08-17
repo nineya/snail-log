@@ -9,19 +9,12 @@ import java.io.IOException;
 
 public final class SimpleFileAppender extends FileAppender {
     private FileWriter fileWriter;
-    private String datePattern;
-    private String runTime;
 
     public SimpleFileAppender(){
     }
 
     public SimpleFileAppender(String fileName){
         this.fileName = fileName;
-    }
-
-    public void setDatePattern(String datePattern) {
-        this.datePattern = datePattern;
-        runTime = StringUtil.getTimeFormat(datePattern, System.currentTimeMillis());
     }
 
     @Override
@@ -33,7 +26,7 @@ public final class SimpleFileAppender extends FileAppender {
                 e.printStackTrace();
             }
         }
-        if (runTime != null && !runTime.equals(event.getStartTime(datePattern))){
+        if (isMorePattern(event.getTimeStamp())){
             File oldfile = new File(fileName);
             File newfile = new File(fileName + runTime);
             int i = 0;

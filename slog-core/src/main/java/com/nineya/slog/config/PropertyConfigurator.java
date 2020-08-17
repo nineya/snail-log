@@ -36,7 +36,6 @@ import java.util.Properties;
 public class PropertyConfigurator implements Configurator<Properties> {
     private static final String LOGGER_OPEN = "slog.config.loggerOpen";
     private static final String LOGGER_PREFIX = "slog.";
-    private static final String NAME_SUFFIX = ".name";
     private static final String PARENT_SUFFIX = ".parent";
     private static final String CLASS_PREFIX = "slog.class.";
     private static final String APPENDER_SUFFIX = ".appender";
@@ -222,19 +221,15 @@ public class PropertyConfigurator implements Configurator<Properties> {
      * @throws InvocationTargetException
      */
     private void doAttribute(String prefix, Class clazz, Object obj, Properties properties) {
-        while (clazz !=null){
-            Method[] methods = clazz.getDeclaredMethods();
-            for (Method method : methods){
-                Object attribute = properties.get(prefix + method.getName().replaceFirst("set", ""));
-                if (attribute!=null){
-                    method.setAccessible(true);
-                    try {
-                        method.invoke(obj, attribute);
-                    } catch (Exception e) {
-                    }
+        Method[] methods = clazz.getMethods();
+        for (Method method : methods){
+            Object attribute = properties.get(prefix + method.getName().replaceFirst("set", ""));
+            if (attribute!=null){
+                try {
+                    method.invoke(obj, attribute);
+                } catch (Exception e) {
                 }
             }
-            clazz = clazz.getSuperclass();
         }
     }
 
