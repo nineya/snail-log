@@ -28,6 +28,9 @@ public final class LogManager {
         Logger logger = nameLoggers.get(name);
         if (logger == null){
             logger = new Logger(name);
+            if (!name.equals(ROOT_LOGGER_NAME)){
+                logger.setParent(getRootLogger());
+            }
             nameLoggers.put(name, logger);
         }
         return logger;

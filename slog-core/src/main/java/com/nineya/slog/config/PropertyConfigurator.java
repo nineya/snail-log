@@ -247,6 +247,14 @@ public class PropertyConfigurator implements Configurator<Properties> {
         }
     }
 
+    public static void configure(InputStream stream){
+        try {
+            new PropertyConfigurator().doConfigure(stream, LogManager.getLoggerRepository());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * 通过Properties创建配置
      * @param properties Properties对象

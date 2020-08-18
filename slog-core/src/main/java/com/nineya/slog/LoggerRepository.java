@@ -46,7 +46,15 @@ public class LoggerRepository {
         return filter;
     }
 
+    /**
+     * 是否通过过滤器过滤
+     * @param event 消息内容
+     * @return true：通过过滤，False：拦截
+     */
     public boolean decide(LoggingEvent event){
+        if (filter == null){
+            return true;
+        }
         return filter.decide(event);
     }
 }

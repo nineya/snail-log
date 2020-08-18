@@ -8,7 +8,15 @@
 
 - [认识Snail Log](know-slog.md)
 
+- [javadoc](apidocs/index.html)
+
 - 使用API
   - [使用Slog生成第一条日志](slog-build-api.md)
+  - [使用Filter](filter-logger.md)
+  - [使用Appender](appender-logger.md)
+  - [使用Layout](layout-logger.md)
 
 - 配置
+  -[properties配置](properties-config.md)
+  -[javaApi配置](javaapi-config.md)
+  -[xml配置](xml-config.md)
