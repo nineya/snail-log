@@ -18,6 +18,17 @@ public class MarkdownLayout extends Layout {
         conversionPattern = "[%-d{yyyy-MM-dd HH:mm:ss} - %p] %m";
     }
 
+    /**
+     * 实现父类format方法实现消息转换
+     *
+     * 在本方法中，只有<u>CONTENT<u/>类型的消息会正常的使用conversionPattern模板进行格式转换，其他类型
+     * 的消息都将根据消息具体的类型生成Markdown格式的文本内容。
+     *
+     * 另外，在本方法中除了<u>CONTENT<u/>类型，其他类型是不会进行异常处理的。
+     *
+     * @param event 封装的消息内容
+     * @return 转换后的String类型消息内容
+     */
     @Override
     public String format(LoggingEvent event) {
         switch (event.getDocument()){

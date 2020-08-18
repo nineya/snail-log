@@ -8,6 +8,11 @@ import com.nineya.slog.spi.LoggingEvent;
  */
 public class PatternLayout extends Layout {
 
+    /**
+     * 基础的format实现，根据conversionPattern模板生成日志消息内容，没有其他附加的操作
+     * @param event 封装的日志消息内容
+     * @return String的日志消息内容
+     */
     @Override
     public String format(LoggingEvent event) {
         String format =  regexFormat(conversionPattern, event);

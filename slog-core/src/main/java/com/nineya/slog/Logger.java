@@ -224,6 +224,14 @@ public class Logger {
         return LogManager.getLogger(clazz.getName());
     }
 
+    /**
+     * 处理日志消息，判断日志小时是否通过Logger Level过滤，Logger Filter过滤。
+     * 通过过滤的日志消息将被封装为LoggingEvent进行下一步操作
+     * @param document 日志内容类型
+     * @param level 日志Level级别
+     * @param message 日志消息内容
+     * @param t 日志需要输出的Throwable错误信息
+     */
     private void forcedLog(Document document, Level level, Object message, Throwable t) {
         if (level.getLevelNum() >= this.level.getLevelNum()){
             LoggingEvent event = new LoggingEvent(FQCN, document, level, name, message, t);
@@ -234,6 +242,11 @@ public class Logger {
         }
     }
 
+    /**
+     * 遍历当前Logger日志记录器和父日志记录器，调用其<u>Appender</u>的callAppend方法，执行日志输出。
+     * 在调用callAppend方法日志输出之前，判断本条日志信息是否通过了全局Filter过滤。
+     * @param event
+     */
     private void callAppenders(LoggingEvent event) {
         Logger logger = this;
         while(logger!=null){

@@ -20,10 +20,19 @@ public enum Level {
         this.levelNum = levelNum;
     }
 
+    /**
+     * 取得当前Level等级对应的LevelNum
+     * @return
+     */
     public int getLevelNum() {
         return levelNum;
     }
 
+    /**
+     * 将String的level转换为Level枚举类型，不区分大小写
+     * @param operate String的level
+     * @return Level枚举类型
+     */
     public static Level value(String operate) {
         for(Level s : values()) {    //values()方法返回enum实例的数组
             if(operate.equalsIgnoreCase(s.name())){

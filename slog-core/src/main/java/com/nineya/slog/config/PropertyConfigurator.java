@@ -46,12 +46,24 @@ public class PropertyConfigurator implements Configurator<Properties> {
     private static final String APPENDER_ATTRIBUTE_SUFFIX = ".attribute.";
     private static final Logger STATUS_LOGGER = StatusLogger.getLogger();
 
+    /**
+     * 通过properties文件的路径获取配置信息
+     * @param path 配置文件路径
+     * @param repository 一些公共配置信息存储的对象
+     * @throws IOException
+     */
     @Override
     public void doConfigure(String path, LoggerRepository repository) throws IOException {
         InputStream in = new BufferedInputStream(new FileInputStream(path));
         doConfigure(in, repository);
     }
 
+    /**
+     * 通过properties文件的InputStream流获取配置信息
+     * @param in InputStream流
+     * @param repository 一些公共配置信息存储的对象
+     * @throws IOException
+     */
     public void doConfigure(InputStream in, LoggerRepository repository) throws IOException{
         if (in == null){
             throw new SnailFileException("配置文件不存在");
@@ -62,6 +74,11 @@ public class PropertyConfigurator implements Configurator<Properties> {
         doConfigure(properties, repository);
     }
 
+    /**
+     * 实际上开始进行配置信息获取与解析的方法。
+     * @param properties 配置信息
+     * @param repository 一些公共配置信息存储的对象
+     */
     @Override
     public void doConfigure(Properties properties, LoggerRepository repository) {
         String[] loggerNames = properties.getProperty(LOGGER_OPEN, "").split(",");
@@ -73,6 +90,12 @@ public class PropertyConfigurator implements Configurator<Properties> {
         repository.setFilter(doFilter(Filter_PREFIX, properties));
     }
 
+    /**
+     * 解析配置，创建Logger日志记录器
+     * @param loggerName 日志记录器名称
+     * @param properties 配置信息
+     * @return
+     */
     private Logger parseLogger(String loggerName, Properties properties){
         Logger logger = LogManager.getLogger(loggerName);
         String loggerPrefix = LOGGER_PREFIX + loggerName;

@@ -16,6 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @author linsongwang
  * @date 2020/7/5 23:34
+ * LogManger是Logger的管理类
  */
 public final class LogManager {
     public static final String ROOT_LOGGER_NAME = "rootLogger";
@@ -24,6 +25,11 @@ public final class LogManager {
     private static final Logger STATUS_LOGGER = StatusLogger.getLogger();
     private static LoggerRepository repository = getLoggerRepository();
 
+    /**
+     * 取得Logger，如果不存则创建
+     * @param name Logger名称
+     * @return Logger日志记录器
+     */
     public static Logger getLogger(String name) {
         Logger logger = nameLoggers.get(name);
         if (logger == null){
@@ -35,6 +41,12 @@ public final class LogManager {
         }
         return logger;
     }
+
+    /**
+     * 取得LoggerRepository，如果LoggerRepository不存在则创建。
+     * 创建将使用默认的的配置文件进行。
+     * @return 取得LoggerRepository
+     */
     public static LoggerRepository getLoggerRepository() {
         if (repository == null) {
             repository = new LoggerRepository(new Node(null, ""));
@@ -50,6 +62,10 @@ public final class LogManager {
         return repository;
     }
 
+    /**
+     * 取得rootLogger根日志记录器
+     * @return rootLogger根日志记录器
+     */
     public static Logger getRootLogger(){
         return getLogger(ROOT_LOGGER_NAME);
     }

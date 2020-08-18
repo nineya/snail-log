@@ -9,10 +9,18 @@ import com.nineya.slog.spi.LoggingEvent;
 public abstract class Filter {
     private Filter nextFilter;
 
+    /**
+     * 设置Filter的nextFilter
+     * @param nextFilter
+     */
     public void setNextFilter(Filter nextFilter){
         this.nextFilter = nextFilter;
     }
 
+    /**
+     * 取得Filter的nextFilter
+     * @return nextFilter
+     */
     public Filter getNextFilter() {
         return nextFilter;
     }
