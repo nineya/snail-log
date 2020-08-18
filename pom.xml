@@ -151,7 +151,7 @@
                         <version>${gpg.plugin.version}</version>
                         <executions>
                             <execution>
-                                <phase>site</phase>
+                                <phase>verify</phase>
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>

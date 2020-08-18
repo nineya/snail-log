@@ -94,7 +94,7 @@ public class PropertyConfigurator implements Configurator<Properties> {
      * 解析配置，创建Logger日志记录器
      * @param loggerName 日志记录器名称
      * @param properties 配置信息
-     * @return
+     * @return 日志记录器
      */
     private Logger parseLogger(String loggerName, Properties properties){
         Logger logger = LogManager.getLogger(loggerName);

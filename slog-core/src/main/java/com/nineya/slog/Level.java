@@ -22,7 +22,7 @@ public enum Level {
 
     /**
      * 取得当前Level等级对应的LevelNum
-     * @return
+     * @return level对应的值
      */
     public int getLevelNum() {
         return levelNum;
