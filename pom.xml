@@ -16,7 +16,7 @@
     <groupId>com.nineya.slog</groupId>
     <artifactId>snail-log</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <modules>
         <module>demos</module>
         <module>slog-core</module>
@@ -25,9 +25,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <SlogVersion>1.0.0</SlogVersion>
-        <SlogDemosVersion>1.0.0</SlogDemosVersion>
-        <SlogCoreVersion>1.0.0</SlogCoreVersion>
+        <SlogVersion>1.0.1</SlogVersion>
+        <SlogDemosVersion>1.0.1</SlogDemosVersion>
+        <SlogCoreVersion>1.0.1</SlogCoreVersion>
         <sonatype.plugins.version>1.6.7</sonatype.plugins.version>
         <source.plugin.version>2.2.1</source.plugin.version>
         <javadoc.plugin.version>3.1.1</javadoc.plugin.version>
