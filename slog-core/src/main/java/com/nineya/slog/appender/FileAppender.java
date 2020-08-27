@@ -1,5 +1,6 @@
 package com.nineya.slog.appender;
 
+import com.nineya.slog.exception.SnailFileException;
 import com.nineya.slog.tool.StringUtil;
 
 import java.io.File;
@@ -13,6 +14,30 @@ public abstract class FileAppender extends AppenderSkeleton {
     protected String fileName;
     protected String datePattern;
     protected String runTime;
+    protected long fileSize;
+
+    /**
+     * 设置日志文件最大值，可带参数，如果不带单位g/m/k，则单位默认为B
+     * @param fileSize 文件最大值
+     */
+    public void setFileSize(String fileSize) {
+        if (fileSize.matches("\\d+[A-Za-z]{0,1}")){
+            throw new SnailFileException("FileSize 参数有误: " + fileSize);
+        }
+        long n = Long.parseLong(fileSize.replaceAll("[A-Za-z]", ""));
+        switch (fileSize.toLowerCase().charAt(fileSize.charAt(fileSize.length() - 1))){
+            case 'g':{
+                n*=1024;
+            }
+            case 'm':{
+                n*=1024;
+            }
+            case 'k':{
+                n*=1024;
+            }
+        }
+        this.fileSize = n;
+    }
 
     /**
      * 取得fileName
@@ -74,5 +99,14 @@ public abstract class FileAppender extends AppenderSkeleton {
      */
     protected boolean isMorePattern(long time){
         return runTime != null && !runTime.equals(StringUtil.getTimeFormat(datePattern, time));
+    }
+
+    /**
+     * 判断日志文件是否过指定大小
+     * @param fileSize 日志文件大小
+     * @return true：超过，false：未超过
+     */
+    protected boolean isMoreFileSize(long fileSize){
+        return fileSize > this.fileSize;
     }
 }

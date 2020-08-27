@@ -67,7 +67,7 @@ public abstract class Layout {
                 return event.getStartTime(param);
             }
             case 'n':{
-                return "\r\n";
+                return "\n";
             }
             case 'C':{
                 StackTraceElement element = event.getLocationInfo();

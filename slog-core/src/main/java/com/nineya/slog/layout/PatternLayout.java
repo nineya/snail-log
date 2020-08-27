@@ -20,6 +20,6 @@ public class PatternLayout extends Layout {
         if (throwable == null){
             return format;
         }
-        return format + "\r\n" + throwable;
+        return format + "\n" + throwable;
     }
 }

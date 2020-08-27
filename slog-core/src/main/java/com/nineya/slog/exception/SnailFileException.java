@@ -7,7 +7,7 @@ import java.io.IOException;
  * @date 2020/6/28 1:13
  * 和IO有关的错误封装
  */
-public class SnailFileException extends IOException {
+public class SnailFileException extends RuntimeException {
 
     /**
      * 输出错误说明信息和出现错误的文件路径

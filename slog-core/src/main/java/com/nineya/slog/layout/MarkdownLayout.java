@@ -38,7 +38,7 @@ public class MarkdownLayout extends Layout {
                 if (throwable == null){
                     return format;
                 }
-                return format + "\r\n" + throwable;
+                return format + "\n" + throwable;
             }
             case ONE_TITLE:{
                 return ONE_TITLE + event.getMessage().toString();

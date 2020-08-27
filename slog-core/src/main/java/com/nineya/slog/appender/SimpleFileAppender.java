@@ -40,7 +40,8 @@ public final class SimpleFileAppender extends FileAppender {
                 e.printStackTrace();
             }
         }
-        if (isMorePattern(event.getTimeStamp())){
+        // 日志文件超过规定的大小或者超时
+        if (isMoreFileSize(new File(fileName).length()) || isMorePattern(event.getTimeStamp())){
             File oldfile = new File(fileName);
             File newfile = new File(fileName + runTime);
             int i = 0;
@@ -57,7 +58,7 @@ public final class SimpleFileAppender extends FileAppender {
             runTime = event.getStartTime(datePattern);
         }
         try {
-            fileWriter.write(layout.format(event) + "\r\n");
+            fileWriter.write(layout.format(event) + "\n");
             fileWriter.flush();
         } catch (IOException e) {
             e.printStackTrace();
