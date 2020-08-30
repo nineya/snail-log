@@ -1,6 +1,7 @@
 package com.nineya.slog.appender;
 
 import com.nineya.slog.exception.SnailFileException;
+import com.nineya.slog.tool.FileTool;
 import com.nineya.slog.tool.StringUtil;
 
 import java.io.File;
@@ -57,7 +58,7 @@ public abstract class FileAppender extends AppenderSkeleton {
      * @param fileName fileName
      */
     public void setFileName(String fileName) {
-        this.fileName = fileName;
+        this.fileName = FileTool.jarWholePath() + fileName;
         if (datePattern != null){
             buildRunTime();
         }
