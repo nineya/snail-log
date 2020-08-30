@@ -27,7 +27,7 @@ Filter是Slog的核心功能，通过Filter可以灵活的控制日志的输出�
 
 | 方法                                         | 说明                                     |
 | -------------------------------------------- | ---------------------------------------- |
-| public void setNextFilter(Filter nextFilter) | 设施下一个过滤器的引用                   |
+| public void setNextFilter(Filter nextFilter) | 设置下一个过滤器的引用                   |
 | public Filter getNextFilter()                | 取得下一个过滤器的引用                   |
 | public boolean decide(LoggingEvent event)    | 执行过滤，遍历从当前过滤器开始的过滤器链 |
 | private boolean doDecide(LoggingEvent event) | 当前过滤器实际上的过滤判断条件           |
