@@ -58,7 +58,8 @@ public abstract class FileAppender extends AppenderSkeleton {
      * @param fileName fileName
      */
     public void setFileName(String fileName) {
-        this.fileName = FileTool.jarWholePath() + fileName;
+        FileTool.createFileFolder(fileName);
+        this.fileName = fileName;
         if (datePattern != null){
             buildRunTime();
         }

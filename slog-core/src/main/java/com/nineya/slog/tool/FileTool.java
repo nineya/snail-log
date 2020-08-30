@@ -24,6 +24,17 @@ public class FileTool {
     }
 
     /**
+     * 判断文件所在的路径是否存在，如果不存在则创建该路径
+     * @param filePath 文件所在的路径
+     */
+    public static void createFileFolder(String filePath){
+        File file = new File(filePath).getParentFile();
+        if (!file.exists()){
+            file.mkdirs();
+        }
+    }
+
+    /**
      * 判断路径是不是文件夹
      * @param path 路径
      * @return true 是文件夹，false不是
