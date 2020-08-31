@@ -1,6 +1,7 @@
 package com.nineya.slog;
 
 import com.nineya.slog.appender.Appender;
+import com.nineya.slog.filter.ClassLevelFilter;
 import com.nineya.slog.filter.Filter;
 import com.nineya.slog.spi.LoggingEvent;
 
@@ -27,7 +28,8 @@ public class Logger {
     }
 
     public void setFilter(Filter filter) {
-        this.headFilter = filter;
+        this.headFilter = new ClassLevelFilter(name);
+        this.headFilter.setNextFilter(filter);
     }
 
     public void addFilter(Filter filter){
@@ -61,6 +63,7 @@ public class Logger {
 
     protected Logger(String name){
         this.name = name;
+        this.headFilter = new ClassLevelFilter(name);
     }
 
     public void info(Object message){
@@ -199,6 +202,14 @@ public class Logger {
         forcedLog(document, level, disposeMessage(message, params), null);
     }
 
+    /**
+     * 将参数解析到message中
+     * 在输出时，可通过占位符{}指定一个参数
+     * 如果{}与参数数量无法对应，将抛出异常
+     * @param message 消息
+     * @param params 参数列表
+     * @return 解析处理过的String消息
+     */
     private String disposeMessage(String message, Object[] params){
         Matcher matcher = pattern.matcher(message);
         StringBuilder sb = new StringBuilder(message);
@@ -235,8 +246,7 @@ public class Logger {
     private void forcedLog(Document document, Level level, Object message, Throwable t) {
         if (level.getLevelNum() >= this.level.getLevelNum()){
             LoggingEvent event = new LoggingEvent(FQCN, document, level, name, message, t);
-            if ((headFilter == null || headFilter.decide(event)) && level.getLevelNum() >=  LogManager.getLoggerRepository().
-                levelFilter(this.name, event.getLocationInfo().getClassName()).getLevelNum()){
+            if (headFilter.decide(event)){
                 callAppenders(new LoggingEvent(FQCN, document, level, name, message, t));
             }
         }
